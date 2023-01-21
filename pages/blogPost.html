@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личен Блог</title>
+    <link rel="stylesheet" href="./styles/blogPost.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <h3><a href="../mainPage.html">Блог</a></h3>
+            <p id="loginedUser"></p>
+            <div class="buttons">
+                <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                <button><a href="./registerPage.html">регистрация</a></button>
+                <button><a href="./loginPage.html">логин</a></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blogPage">
+            <section class="blog">
+                <img />
+                <h2></h2>
+                <p></p>
+                <p></p>
+            </section>
+            <section>
+                <ul class="comments">
+
+                </ul>
+            </section>
+            <section class="comment">
+                <h3>Добави коментар</h3>
+                <form action="">
+                    <textarea name="comment" placeholder="add comment"></textarea>
+
+                    <input id="addComment" type="button" value="submit" />
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св. Климент Охридски"</p>
+        <p>Може да пишете на: <a href="mailto:jordan.pavlov73@gmail.com">личен имейл</a></p>
+    </footer>
+
+    <script src="./scripts/blogPost.js"></script>
+</body>
+</html>

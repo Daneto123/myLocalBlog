@@ -1,0 +1,118 @@
+* {
+    top: 0px;
+    left: 0px;
+}
+
+nav {
+    background-color: cornsilk;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.nav h3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.blog {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.blog img {
+    width: 400px;
+    height: 300px;
+    margin-top: 15px;
+}
+
+.comments {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.comments ul li {
+    list-style-type: none;
+    border-bottom: 1px dotted black;
+    width: 800px;
+}
+
+.comments ul li p {
+    padding: 0px 20px;
+}
+
+.comment {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.comment form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=button] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+section {
+    background-color: bisque;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 0px 20px;
+    height: fit-content;
+}
+
+footer {
+    background-color: green;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-top: 30px;
+    height: 100px;
+    text-align: center;
+}

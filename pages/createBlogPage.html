@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Личен Блог</title>
+    <link rel="stylesheet" href="./styles/createBlogPage.css" />
+    <script src="./scripts/createBlogPage.js" type="module"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h3><a href="../mainPage.html">Блог</a></h3>
+            <div class="buttons">
+                <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                <button><a href="./registerPage.html">регистрация</a></button>
+                <button><a href="./loginPage.html">логин</a></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="createBlog">
+            <h2>Add new blog</h2>
+            <form>
+                <label for="topic">Name of topic</label>
+                <input name="topic" placeholder="name of topic" type="text" id="topic" />
+                <label for="detailsTopic">Details for topic</label>
+                <textarea type="text" id="detail" placeholder="Details for topic" name="detailsTopic"></textarea>
+                <label for="image">image url</label>
+                <input name="image" placeholder="enter url to img" type="text" id="image" />
+
+                <input id="submit" type="button" value="submit" />
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
