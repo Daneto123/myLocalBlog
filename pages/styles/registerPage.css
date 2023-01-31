@@ -12,6 +12,8 @@ main {
 
 h2 {
     display: inline;
+    display: flex;
+    margin: 40px;
 }
 
 form {
@@ -19,10 +21,28 @@ form {
     border: 1px solid black;
     border-radius: 10px;
     width: 350px;
-    
+    height: fit-content;
+    text-align: center;
+    margin-top: 30px;
+
 }
 
-input[type=text], input[type=password] {
+#backBtn {
+    position: relative;
+    float: right;
+    top: 20px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    background: none;
+    border: none;
+}
+
+#backBtn img {
+    margin: 0;
+}
+
+input[type=text],
+input[type=password] {
     width: 250px;
     padding: 15px;
     margin: 10px 20px;
@@ -30,10 +50,15 @@ input[type=text], input[type=password] {
     border: none;
     background: rgba(0, 0, 0, 0.1);
 }
-  
-input[type=text]:focus, input[type=password]:focus {
+
+input[type=text]:focus,
+input[type=password]:focus {
     background-color: pink;
     outline: none;
+}
+
+input:invalid {
+    box-shadow: 0 0 5px 1px red;
 }
 
 a {
@@ -46,7 +71,10 @@ a:hover {
 }
 
 label {
-    margin: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
+    display: flex;
+    text-align: left;
 }
 
 #submit {
@@ -66,4 +94,25 @@ label {
 .signin {
     border-top: 1px solid black;
     margin-top: 20px;
+}
+
+#EmailMessage {
+    display: none;
+}
+
+#PasswordMessage {
+    display: none;
+}
+
+#RePasswordMessage {
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    nav {
+        width: 90%;
+    }
+
+    main {}
 }

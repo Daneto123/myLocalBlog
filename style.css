@@ -12,6 +12,10 @@ nav {
     padding: 0px 20px;
 }
 
+.sandButton {
+    display: none;
+}
+
 .buttons {
     margin-top: 15px;
 }
@@ -32,9 +36,9 @@ a {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-main {
+/* main {
     text-align: center;
-}
+} */
 
 
 #listBlogFP {
@@ -60,8 +64,6 @@ section {
     border-top-right-radius: 10px;
     width: 400px;
     text-align: center;
-    align-items: center;
-    text-align: center;
 }
 
 #listBlogFP section:hover {
@@ -78,20 +80,6 @@ section {
     background-color: white;
 }
 
-.blogPage {
-    display: none;
-}
-
-.blog {
-    background-color: rgba(57, 117, 255, 0.4);
-}
-
-.blog img {
-    width: 400px;
-    height: 300px;
-    margin-top: 15px;
-}
-
 .additionalInformation {
     display: flex;
     justify-content: space-between;
@@ -104,4 +92,54 @@ footer {
     padding-top: 30px;
     height: 100px;
     text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    nav {
+        width: 90%;
+    }
+
+    .laptop {
+        display: none;
+    }
+
+    .sandButton {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .menuPhone {
+        display: none;
+        width: 150px;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .menuPhone button {
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        margin-top: 10px;
+    }
+
+    #sandwitch {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+    }
+
+    main {
+        text-align: center;
+    }
+
+    #listBlogFP section {
+        width: 340px;
+    }
+
+    footer {
+        height: fit-content;
+        padding: 30px 25px 30px 25px;
+    }
 }

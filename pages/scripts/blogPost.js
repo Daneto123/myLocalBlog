@@ -12,11 +12,11 @@ function templateComment(data) {
                 <p>${data.comment}</p>`);
 }
 
-document.addEventListener('DOMContentLoaded', () => { 
+document.addEventListener('DOMContentLoaded', () => {
 
     // аутентикиране на потребител
 
-    if(user != null) {
+    if (user != null) {
         document.getElementsByClassName("buttons")[0].style = "display: none;";
         document.getElementById("loginedUser").textContent = "Hi, " + user;
     }
@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // зареждане на блог
     dataStored = JSON.parse(localStorage.getItem("list"));
 
-    let openBlog = blog.children[1];
-    let date = blog.children[2];
-    let text = blog.children[3];
-    let image = blog.children[0];
+    let openBlog = blog.children[2];
+    let date = blog.children[3];
+    let text = blog.children[4];
+    let image = blog.children[1];
 
     let topic = localStorage.getItem("bloG");
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // добавяне на коментар
 addCommentsBtn.addEventListener("click", event => {
 
-    if(user != null) {
+    if (user != null) {
         let text = document.getElementsByTagName("textarea")[0];
 
         const data = {
@@ -82,7 +82,7 @@ addCommentsBtn.addEventListener("click", event => {
 
         dataStored.forEach(element => {
             console.log("vlez 1");
-            if(element.title == nameBlog) {
+            if (element.title == nameBlog) {
                 console.log("vlez 2");
                 element.comments.push(data);
             }
@@ -96,3 +96,39 @@ addCommentsBtn.addEventListener("click", event => {
         alert("To write comments you should be registered");
     }
 })
+
+let phoneBtn = document.getElementsByClassName("sandButton")[0];
+
+phoneBtn.addEventListener("click", event => {
+    let menu = document.getElementsByClassName("menuPhone")[0];
+
+    console.log(menu)
+
+    if (menu.style.display == "flex" || menu.style.display == "") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+})
+
+
+var mediaQueryList = window.matchMedia("(max-width: 600px)");
+
+function screenTest(e) {
+    if (e.matches) {
+        let menu = document.getElementsByClassName("menuPhone")[0];
+
+        console.log(menu)
+
+        if (menu.style.display == "flex" || menu.style.display == "") {
+            menu.style.display = "none";
+        }
+    }
+}
+
+mediaQueryList.addListener(screenTest);
+
+
+function backToMain() {
+    window.location.href = "http://127.0.0.1:5500/mainPage.html";
+}

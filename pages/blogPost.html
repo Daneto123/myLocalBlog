@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,29 @@
     <title>Личен Блог</title>
     <link rel="stylesheet" href="./styles/blogPost.css" />
 </head>
+
 <body>
     <header>
         <nav>
             <h3><a href="../mainPage.html">Блог</a></h3>
-            <p id="loginedUser"></p>
-            <div class="buttons">
-                <button><a href="./createBlogPage.html">създаване на блог</a></button>
-                <button><a href="./registerPage.html">регистрация</a></button>
-                <button><a href="./loginPage.html">логин</a></button>
+            <div class="laptop">
+                <p id="loginedUser"></p>
+                <div class="buttons">
+                    <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                    <button><a href="./pages/registerPage.html">регистрация</a></button>
+                    <button><a href="./pages/loginPage.html">логин</a></button>
+                </div>
+            </div>
+            <div class="sandButton">
+                <div id="sandwitch"></div>
+                <div id="sandwitch"></div>
+                <div id="sandwitch"></div>
+                <div class="menuPhone">
+                    <p id="loginedUser"></p>
+                    <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                    <button><a href="./pages/registerPage.html">регистрация</a></button>
+                    <button><a href="./pages/loginPage.html">логин</a></button>
+                </div>
             </div>
         </nav>
     </header>
@@ -23,6 +38,8 @@
     <main>
         <div class="blogPage">
             <section class="blog">
+                <button id="backBtn" onclick="backToMain()" style="width: 30px; height: 30px;"><img
+                        style="width: 30px; height: 30px; position: relative;" src="./backBtn.png" /></button>
                 <img />
                 <h2></h2>
                 <p></p>
@@ -45,10 +62,12 @@
     </main>
 
     <footer>
-        <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св. Климент Охридски"</p>
+        <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св.
+            Климент Охридски"</p>
         <p>Може да пишете на: <a href="mailto:jordan.pavlov73@gmail.com">личен имейл</a></p>
     </footer>
 
     <script src="./scripts/blogPost.js"></script>
 </body>
+
 </html>

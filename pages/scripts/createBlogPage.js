@@ -24,11 +24,24 @@ submit.addEventListener("click", event => {
     console.log(details);
     console.log(image);
 
-    if(nameArticle != "" && details != "" && image != ""){
+    if (nameArticle != "" && details != "" && image != "") {
+
+        var date = new Date();
+        var hours = date.getHours();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        var minutes = date.getMinutes();
+        var minutes = minutes < 10 ? "0" + minutes : minutes;
+        var time = hours + "." + minutes + " " + ampm;
+        var month = date.getMonth() + 1;
+        month = month < 10 ? "0" + month : month;
+
+        var mDate = date.getDate() + "." + month + "." + date.getFullYear();
 
         let newBlog = {
             "title": nameArticle,
-            "date": new Date(),
+            "date": "час: " + time + " / " + "дата: " + mDate,
             "text": details,
             "image": image,
             "comments": []
@@ -47,5 +60,34 @@ submit.addEventListener("click", event => {
 })
 
 
+let phoneBtn = document.getElementsByClassName("sandButton")[0];
 
+phoneBtn.addEventListener("click", event => {
+    let menu = document.getElementsByClassName("menuPhone")[0];
+
+    console.log(menu)
+
+    if (menu.style.display == "flex" || menu.style.display == "") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+})
+
+
+var mediaQueryList = window.matchMedia("(max-width: 600px)");
+
+function screenTest(e) {
+    if (e.matches) {
+        let menu = document.getElementsByClassName("menuPhone")[0];
+
+        console.log(menu)
+
+        if (menu.style.display == "flex" || menu.style.display == "") {
+            menu.style.display = "none";
+        }
+    }
+}
+
+mediaQueryList.addListener(screenTest);
 

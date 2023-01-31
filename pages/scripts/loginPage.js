@@ -21,43 +21,81 @@ const auth = getAuth(app);
 const submitBtn = document.getElementById("submit");
 
 submitBtn.addEventListener("click", event => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
+  console.log(email);
+  console.log(password);
+
+  if (email === "" || !email.toLowerCase().match('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')) {
+    alert("Enter Email");
+  } else if (password === "") {
+    alert("Enter Password");
+  } else {
     console.log(email);
     console.log(password);
 
-    if (email === "") {
-        alert("Enter Email");
-    } else if (password === "") {
-        alert("Enter Password");
-    } else {
-        console.log(email);
-        console.log(password);
 
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            alert("User is valid");
-            localStorage.setItem("email", email);
-            location.replace("http://127.0.0.1:5500/mainPage.html");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-          switch (errorCode) {
-            case 'auth/invalid-email':
-              alert(`Email address ${this.state.email} is invalid.`);
-              break;
-            case 'auth/weak-password':
-              alert('Password is not strong enough. Add additional characters including special characters and numbers.');
-              break;
-            default:
-              const errorMessage = error.message;
-              alert(`error code: ${errorCode}, message; ${errorMessage}`);
-              break;
-          }
-        });
 
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("User is valid");
+        localStorage.setItem("email", email);
+        location.replace("http://127.0.0.1:5500/mainPage.html");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+          case 'auth/invalid-email':
+            alert(`Email or password is invalid.`);
+            break;
+          case 'auth/weak-password':
+            alert('Email or Password is invalid.');
+            break;
+          default:
+            const errorMessage = error.message;
+            alert(`error code: ${errorCode}, message; ${errorMessage}`);
+            break;
+        }
+      });
 
+  }
+
+})
+
+let inputEmail = document.getElementById('email');
+let inputPassword = document.getElementById('password');
+
+inputEmail.addEventListener('keydown', event => {
+
+  let idEvent = event.target.validity.valid;
+  let emailMessage = document.getElementById("EmailMessage");
+
+  if (idEvent == false) {
+    emailMessage.style = "display: block;";
+  } else {
+    emailMessage.style = "display: none;";
+  }
+
+})
+
+
+inputPassword.addEventListener('keydown', event => {
+
+  let idEvent = event.target.validity.valid;
+  let passwordMessage = document.getElementById("PasswordMessage");
+
+  if (idEvent == false) {
+    passwordMessage.style = "display: block;";
+  } else {
+    passwordMessage.style = "display: none;";
+  }
+
+})
+
+let back = document.getElementById("backBtn");
+
+back.addEventListener("click", event => {
+  window.location.href = "http://127.0.0.1:5500/mainPage.html";
 })
