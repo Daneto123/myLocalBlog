@@ -88,10 +88,69 @@ section {
 footer {
     background-color: green;
     border-radius: 10px;
-    padding-left: 30px;
-    padding-top: 30px;
-    height: 100px;
+    padding: 30px;
+    width: 98%;
+    display: flex;
+}
+
+.links {
+    width: 30%;
+    height: fit-content;
+}
+
+.links ul {
+    width: fit-content;
+    display: flex;
+    padding-left: 0;
+}
+
+.links ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.links ul li:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.messageS {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messageS p {
+    float: left;
+}
+
+.messageS textarea {
+    height: 50px;
+    float: left;
+}
+
+.about {
+    width: 30%;
+    height: fit-content;
     text-align: center;
+}
+
+.social {
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    margin-left: 20%;
+    width: fit-content;
+}
+
+.social button {
+    background: none;
+    border: none;
+}
+
+.social button img:hover {
+    background: white;
+    border-radius: 30px;
 }
 
 @media only screen and (max-width: 600px) {

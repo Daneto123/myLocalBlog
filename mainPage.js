@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dataStored.forEach(element => {
         let newSection = document.createElement("section");
         newSection.innerHTML = `
-        <img src="${element.image}" alt="image" onerror="this.Error = null; this.src = './default-image.jpg'" />
+        <img src="${element.image}" alt="image" onerror="this.Error = null; this.src = './images/default-image.jpg'" />
         <h2>${element.title}</h2>
         <div class="additionalInformation">
             <p>${element.date}</p>
