@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (user != null) {
         document.getElementById("loginedUser").textContent = "Hi, " + user;
+        document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
         document.getElementsByClassName("notLogin")[0].style = "display: none;";
     } else {
         document.getElementsByClassName("buttons")[0].style = "display: none;";
@@ -39,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
             date.textContent = "Created on: " + element.date;
             text.textContent = element.text;
             image.src = element.image;
-
+            image.onerror = function() {
+                this.Error = null; 
+                this.src = '../images/default-image.jpg';
+            };
             nameBlog = element.title;
 
             // console.log(element.title);
@@ -106,6 +110,7 @@ addCommentsBtn.addEventListener("click", event => {
         var ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12;
+        hours = hours < 10 ? "0" + hours : hours;
         var minutes = date.getMinutes();
         var minutes = minutes < 10 ? "0" + minutes : minutes;
         var time = hours + "." + minutes + " " + ampm;
@@ -128,10 +133,9 @@ addCommentsBtn.addEventListener("click", event => {
         text.value = "";
 
         dataStored.forEach(element => {
-            console.log("vlez 1");
             if (element.title == nameBlog) {
-                console.log("vlez 2");
                 element.comments.push(data);
+
             }
         });
 

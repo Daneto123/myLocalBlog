@@ -27,6 +27,7 @@ submit.addEventListener("click", event => {
         var ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12;
+        hours = hours < 10 ? "0" + hours : hours;
         var minutes = date.getMinutes();
         var minutes = minutes < 10 ? "0" + minutes : minutes;
         var time = hours + "." + minutes + " " + ampm;

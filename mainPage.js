@@ -10,6 +10,7 @@ const user = localStorage.getItem("email");
 
 if (user != null) {
     document.getElementById("loginedUser").textContent = "Hi, " + user;
+    document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
     document.getElementsByClassName("notLogin")[0].style = "display: none;";
 } else {
     document.getElementsByClassName("buttons")[0].style = "display: none;";

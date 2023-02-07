@@ -118,7 +118,7 @@ footer {
     margin-left: 10px;
 }
 
-.links ul li:hover {
+.links ul li a:hover {
     cursor: pointer;
     color: white;
 }
@@ -169,7 +169,13 @@ footer {
     border-radius: 30px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 751px)and (max-width: 949px) {
+    main {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 750px) {
     nav {
         width: 90%;
     }
@@ -207,6 +213,10 @@ footer {
 
     main {
         text-align: center;
+    }
+
+    .about {
+        display: none;
     }
 
     #listBlogFP section {
