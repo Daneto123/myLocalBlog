@@ -16,15 +16,18 @@ nav {
     display: none;
 }
 
-.buttons {
-    margin-top: 15px;
+#loginedUser {
+    margin-top: 10px;
+    margin-right: 50px;
 }
 
-.buttons button {
+button {
     background-color: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 5px;
     padding: 8px;
+    height: 30px;
+    margin-left: 5px;
 }
 
 a {
@@ -32,8 +35,14 @@ a {
     color: black;
 }
 
-.buttons button:hover {
+button:hover {
     background-color: rgba(0, 0, 0, 0.25);
+}
+
+.laptop {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 /* main {
@@ -89,13 +98,13 @@ footer {
     background-color: green;
     border-radius: 10px;
     padding: 30px;
-    width: 98%;
     display: flex;
 }
 
 .links {
     width: 30%;
     height: fit-content;
+    margin-left: 50px;
 }
 
 .links ul {
@@ -127,20 +136,27 @@ footer {
 .messageS textarea {
     height: 50px;
     float: left;
+    background-color: rgba(255, 228, 196, 0.75);
+}
+
+.messageS button {
+    margin-top: 10px;
 }
 
 .about {
-    width: 30%;
+    width: 40%;
     height: fit-content;
     text-align: center;
+    margin-left: 100px;
+    margin-top: 50px;
+    display: flex;
 }
 
 .social {
     width: 30%;
     height: fit-content;
-    display: flex;
-    margin-left: 20%;
-    width: fit-content;
+    margin-left: 150px;
+    width: 200px;
 }
 
 .social button {
@@ -149,7 +165,7 @@ footer {
 }
 
 .social button img:hover {
-    background: white;
+    background: none;
     border-radius: 30px;
 }
 

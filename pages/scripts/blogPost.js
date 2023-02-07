@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // аутентикиране на потребител
 
     if (user != null) {
-        document.getElementsByClassName("buttons")[0].style = "display: none;";
         document.getElementById("loginedUser").textContent = "Hi, " + user;
+        document.getElementsByClassName("notLogin")[0].style = "display: none;";
+    } else {
+        document.getElementsByClassName("buttons")[0].style = "display: none;";
     }
 
     // зареждане на блог
@@ -47,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             //     templateComment(element1);
             // });
 
-            console.log(nameBlog);
-
             // Check for saved wishlist items
             const saved = localStorage.getItem(nameBlog);
 
@@ -63,14 +63,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+let textar = document.getElementsByTagName("textarea")[0];
+
+// броя на символите въведени в текстовото поле
+textar.addEventListener("keydown", event => {
+    let symbolLen = event.target.value.length + 1;
+
+    let symbols = document.getElementById("symbols");
+    console.log(symbolLen);
+    if(symbolLen == 1 && event.keyCode == 8) {
+        symbols.innerText = 0 + "/ 200";
+    } else if (symbolLen == 200 && event.keyCode == '8') {
+        symbolLen -= 1;
+        symbols.innerText = (symbolLen + 1) + "/ 200";
+    } else if (symbolLen < 199 && event.keyCode == '8') {
+        symbolLen -= 2;
+        symbols.innerText = symbolLen + "/ 200";
+    } else {
+        symbols.innerText = symbolLen + "/ 200";
+    }
+
+    let messageLengthErr = document.getElementById("MessageLengthErr");
+
+    if(symbolLen >= 200) {
+        messageLengthErr.style = "display: block;";
+        textar.style = "border: 5px solid red;";
+    } else {
+        messageLengthErr.style = "display: none;";
+        textar.style = "border: 3px solid black;";
+    }
+
+})
+
 // добавяне на коментар
 addCommentsBtn.addEventListener("click", event => {
 
     if (user != null) {
         let text = document.getElementsByTagName("textarea")[0];
 
+        var date = new Date();
+        var hours = date.getHours();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        var minutes = date.getMinutes();
+        var minutes = minutes < 10 ? "0" + minutes : minutes;
+        var time = hours + "." + minutes + " " + ampm;
+        var month = date.getMonth() + 1;
+        month = month < 10 ? "0" + month : month;
+        var day = date.getDate();
+        day = day < 10 ? "0" + day : day;
+
+        var mDate = day + "." + month + "." + date.getFullYear();
+
         const data = {
-            date: new Date(),
+            date: time + " / " + "дата: " + mDate,
             comment: text.value,
             user: user
         };
@@ -90,16 +137,16 @@ addCommentsBtn.addEventListener("click", event => {
 
         localStorage.setItem("list", JSON.stringify(dataStored));
         // Save the list to localStorage
-        console.log(comments.innerHTML)
         localStorage.setItem(nameBlog, comments.innerHTML);
     } else {
         alert("To write comments you should be registered");
     }
 })
 
-let phoneBtn = document.getElementsByClassName("sandButton")[0];
+let sandBtn = document.getElementsByClassName("sandButton")[0];
 
-phoneBtn.addEventListener("click", event => {
+// бутони за телефон
+sandBtn.addEventListener("click", event => {
     let menu = document.getElementsByClassName("menuPhone")[0];
 
     console.log(menu)

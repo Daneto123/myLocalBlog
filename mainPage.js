@@ -3,13 +3,16 @@ const section = ul[0];
 var dataStored = [];
 let have = false;
 let isFetched = false;
+console.log(dataStored);
 
 // аутентикиране ---------------------------------------------------------------
 const user = localStorage.getItem("email");
 
 if (user != null) {
-    document.getElementsByClassName("buttons")[0].style = "display: none;";
     document.getElementById("loginedUser").textContent = "Hi, " + user;
+    document.getElementsByClassName("notLogin")[0].style = "display: none;";
+} else {
+    document.getElementsByClassName("buttons")[0].style = "display: none;";
 }
 
 // презареждане на блогове -----------------------------------------------------
@@ -39,10 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let data3 = JSON.parse(localStorage.getItem("list"));
     if (data3 !== null) {
         dataStored = data3;
-        console.log(dataStored);
     }
 
-    // <img src="${element.image}" alt="image"/>
+    dataStored.sort(function(a, b) {
+        let date1 = a.date.substring(a.date.length - 10, a.date.length);
+        let date2 = b.date.substring(b.date.length - 10, b.date.length);
+        let year1 = date1.substring(date1.length - 4, date1.length);
+        let year2 = date2.substring(date2.length - 4, date2.length);
+        let month1 = date1.substring(date1.length - 7, date1.length - 5);
+        let month2 = date2.substring(date2.length - 7, date2.length - 5);
+        let day1 = date1.substring(0, 2);
+        let day2 = date2.substring(0, 2);
+
+        if(year1 > year2 && month1 < month2 && day1 < day2){
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+
     dataStored.forEach(element => {
         let newSection = document.createElement("section");
         newSection.innerHTML = `
@@ -54,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         `
 
-        //console.log(newSection);
         section.appendChild(newSection);
     });
 

@@ -17,11 +17,16 @@ nav {
     color: black;
 }
 
-.buttons {
-    margin-top: 15px;
+.sandButton {
+    display: none;
 }
 
-.buttons button {
+#loginedUser {
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+button {
     background-color: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 5px;
@@ -35,6 +40,12 @@ a {
 
 .buttons button:hover {
     background-color: rgba(0, 0, 0, 0.25);
+}
+
+.laptop {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 .blog {
@@ -87,18 +98,25 @@ a {
     resize: vertical;
 }
 
-input[type=button] {
-    background-color: #04AA6D;
-    color: white;
-    margin-bottom: 10px;
-    padding: 12px 20px;
+#addComment {
+    background-color: rgba(0, 0, 0, 0.15);
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 10px 0 10px 20px;
     cursor: pointer;
 }
 
-input[type=button]:hover {
-    background-color: #45a049;
+#addComment:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#MessageLengthErr {
+    display: none;
+}
+
+#symbols {
+    float: right;
 }
 
 section {
@@ -125,10 +143,76 @@ section {
 footer {
     background-color: green;
     border-radius: 10px;
-    padding-left: 30px;
-    padding-top: 30px;
-    height: 100px;
+    padding: 30px;
+    display: flex;
+}
+
+.links {
+    width: 30%;
+    height: fit-content;
+    margin-left: 50px;
+}
+
+.links ul {
+    width: fit-content;
+    display: flex;
+    padding-left: 0;
+}
+
+.links ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.links ul li:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.messageS {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messageS p {
+    float: left;
+}
+
+.messageS textarea {
+    height: 50px;
+    float: left;
+    background-color: rgba(255, 228, 196, 0.75);
+}
+
+.messageS button {
+    margin-top: 10px;
+}
+
+.about {
+    width: 40%;
+    height: fit-content;
     text-align: center;
+    margin-left: 100px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.social {
+    width: 30%;
+    height: fit-content;
+    margin-left: 150px;
+    width: 200px;
+}
+
+.social button {
+    background: none;
+    border: none;
+}
+
+.social button img:hover {
+    background: none;
+    border-radius: 30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -177,7 +261,16 @@ footer {
         top: 10px;
     }
 
+    .about {
+        display: none;
+    }
+
+    .social {
+        margin-left: 150px;
+    }
+
     footer {
+        width: 90%;
         height: fit-content;
         padding: 30px 25px 30px 25px;
     }

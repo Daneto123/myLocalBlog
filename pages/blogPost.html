@@ -17,6 +17,8 @@
                 <p id="loginedUser"></p>
                 <div class="buttons">
                     <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                </div>
+                <div class="notLogin">
                     <button><a href="./pages/registerPage.html">регистрация</a></button>
                     <button><a href="./pages/loginPage.html">логин</a></button>
                 </div>
@@ -53,7 +55,9 @@
             <section class="comment">
                 <h3>Добави коментар</h3>
                 <form action="">
-                    <textarea name="comment" placeholder="add comment"></textarea>
+                    <textarea name="comment" placeholder="add comment" maxlength="199"></textarea>
+                    <a id="symbols"></a>
+                    <a id="MessageLengthErr">Comment can be up to 200 symbols.</a>
 
                     <input id="addComment" type="button" value="submit" />
                 </form>
@@ -62,9 +66,29 @@
     </main>
 
     <footer>
-        <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св.
-            Климент Охридски"</p>
-        <p>Може да пишете на: <a href="mailto:jordan.pavlov73@gmail.com">личен имейл</a></p>
+        <div class="links">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Regiter</li>
+            </ul>
+            <div class="messageS">
+                <p>Leave a message</p>
+                <textarea placeholder="напишете съобщение"></textarea>
+            
+                <button>send</button>
+            </div>
+        </div>
+        <div class="about">
+            <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св.
+                Климент Охридски"</p>
+        </div>
+        <div class="social">
+            <button><img src="../images/fb-logo.png" /></button>
+            <button><img src="../images/insta-logo.png" /></button>
+            <button><img src="../images/twitter-logo.png" /></button>
+            <button><img src="../images/youtube-logo.png" /></button>
+        </div>
     </footer>
 
     <script src="./scripts/blogPost.js"></script>

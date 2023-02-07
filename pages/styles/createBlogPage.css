@@ -25,7 +25,7 @@ a {
     margin-top: 15px;
 }
 
-.buttons button {
+button {
     background-color: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 5px;

@@ -11,7 +11,7 @@ submit.addEventListener("click", event => {
     let data3 = JSON.parse(localStorage.getItem("list"));
     if (data3 !== null) {
         dataStored = JSON.parse(localStorage.getItem("list"));
-        console.log(dataStored);
+        // console.log(dataStored);
     }
 
     event.preventDefault();
@@ -19,10 +19,6 @@ submit.addEventListener("click", event => {
     const nameArticle = document.getElementById("topic").value;
     const details = document.getElementById("detail").value;
     const image = document.getElementById("image").value;
-
-    console.log(nameArticle);
-    console.log(details);
-    console.log(image);
 
     if (nameArticle != "" && details != "" && image != "") {
 
@@ -36,8 +32,10 @@ submit.addEventListener("click", event => {
         var time = hours + "." + minutes + " " + ampm;
         var month = date.getMonth() + 1;
         month = month < 10 ? "0" + month : month;
+        var day = date.getDate();
+        day = day < 10 ? "0" + day : day;
 
-        var mDate = date.getDate() + "." + month + "." + date.getFullYear();
+        var mDate = day + "." + month + "." + date.getFullYear();
 
         let newBlog = {
             "title": nameArticle,
@@ -47,8 +45,7 @@ submit.addEventListener("click", event => {
             "comments": []
         }
 
-        dataStored.push(newBlog)
-        console.log(dataStored);
+        dataStored.push(newBlog);
         localStorage.setItem("list", JSON.stringify(dataStored));
         location.reload();
         window.location.href = "http://127.0.0.1:5500/mainPage.html";
@@ -60,12 +57,11 @@ submit.addEventListener("click", event => {
 })
 
 
-let phoneBtn = document.getElementsByClassName("sandButton")[0];
+let sandBtn = document.getElementsByClassName("sandButton")[0];
 
-phoneBtn.addEventListener("click", event => {
+// бутони за телефон
+sandBtn.addEventListener("click", event => {
     let menu = document.getElementsByClassName("menuPhone")[0];
-
-    console.log(menu)
 
     if (menu.style.display == "flex" || menu.style.display == "") {
         menu.style.display = "none";
@@ -80,8 +76,6 @@ var mediaQueryList = window.matchMedia("(max-width: 600px)");
 function screenTest(e) {
     if (e.matches) {
         let menu = document.getElementsByClassName("menuPhone")[0];
-
-        console.log(menu)
 
         if (menu.style.display == "flex" || menu.style.display == "") {
             menu.style.display = "none";

@@ -67,6 +67,7 @@ submitBtn.addEventListener("click", event => {
 let inputEmail = document.getElementById('email');
 let inputPassword = document.getElementById('password');
 
+// проверка на поле за въвеждане на имейл
 inputEmail.addEventListener('keydown', event => {
 
   let idEvent = event.target.validity.valid;
@@ -80,7 +81,7 @@ inputEmail.addEventListener('keydown', event => {
 
 })
 
-
+// проверка на поле за въвеждане на парола
 inputPassword.addEventListener('keydown', event => {
 
   let idEvent = event.target.validity.valid;
