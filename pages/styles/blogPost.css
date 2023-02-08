@@ -68,14 +68,45 @@ a {
     box-sizing: border-box;
 }
 
-.comments ul li {
+.comments li {
     list-style-type: none;
     border-bottom: 1px dotted black;
-    width: 800px;
+    width: 90%;
 }
 
-.comments ul li p {
+.comments li p {
     padding: 0px 20px;
+}
+
+.rating {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+.rating button {
+    width: 50px;
+    height: 50px;
+    background-color: unset;
+    color: rgb(231, 205, 55);
+    border: none;
+    font-size: 3rem;
+    display: flex;
+    padding-top: 0px;
+    padding-bottom: 60px;
+}
+
+.rating button:hover {
+    cursor: pointer;
+}
+
+#currentRating {
+    margin-left: 10px;
+    font-size: larger;
+}
+
+#removeComment {
+    float: right;
 }
 
 .comment {
@@ -117,6 +148,47 @@ a {
 
 #symbols {
     float: right;
+}
+
+.edit {
+    background-color: #6BE3A2;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: none;
+}
+
+.edit textarea {
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 95%;
+    height: fit-content;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    resize: vertical;
+}
+
+.edit textarea:focus {
+    height: fit-content;
+}
+
+#addEditedBlog {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 10px 0 10px 20px;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
 }
 
 section {
@@ -222,9 +294,6 @@ footer {
 }
 
 @media only screen and (max-width: 750px) {
-    nav {
-        width: 90%;
-    }
 
     .laptop {
         display: none;

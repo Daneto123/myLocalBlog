@@ -16,11 +16,11 @@
             <div class="laptop">
                 <p id="loginedUser"></p>
                 <div class="buttons">
-                    <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                    <button><a href="./createBlogPage.html">създаване на блог</a></button>
                 </div>
                 <div class="notLogin">
-                    <button><a href="./pages/registerPage.html">регистрация</a></button>
-                    <button><a href="./pages/loginPage.html">логин</a></button>
+                    <button><a href="./registerPage.html">регистрация</a></button>
+                    <button><a href="./loginPage.html">логин</a></button>
                 </div>
             </div>
             <div class="sandButton">
@@ -29,9 +29,9 @@
                 <div id="sandwitch"></div>
                 <div class="menuPhone">
                     <p id="loginedUserMobile"></p>
-                    <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
-                    <button><a href="./pages/registerPage.html">регистрация</a></button>
-                    <button><a href="./pages/loginPage.html">логин</a></button>
+                    <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                    <button><a href="./registerPage.html">регистрация</a></button>
+                    <button><a href="./loginPage.html">логин</a></button>
                 </div>
             </div>
         </nav>
@@ -46,7 +46,22 @@
                 <h2></h2>
                 <p></p>
                 <p></p>
+                <img id="removeBlog" src="../images/bin.png" style="width: 48px; height: 48px;" />
+                <img id="editBlog" src="../images/edit.png" style="width: 48px; height: 48px;" />
+                <div class="rating">
+                    <button id="1">&#9734</button>
+                    <button id="2">&#9734</button>
+                    <button id="3">&#9734</button>
+                    <button id="4">&#9734</button>
+                    <button id="5">&#9734</button>
+                    <p id="currentRating"></p>
+                </div>
             </section>
+            <div class="edit">
+                <textarea id="editedBlog" name="editBlog"></textarea>
+
+                <input id="addEditedBlog" type="button" value="edit blog" />
+            </div>
             <section>
                 <ul class="comments">
 
@@ -55,7 +70,7 @@
             <section class="comment">
                 <h3>Добави коментар</h3>
                 <form action="">
-                    <textarea name="comment" placeholder="add comment" maxlength="199"></textarea>
+                    <textarea id="newComment" name="comment" placeholder="add comment" maxlength="199"></textarea>
                     <a id="symbols"></a>
                     <a id="MessageLengthErr">Comment can be up to 200 symbols.</a>
 

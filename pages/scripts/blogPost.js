@@ -1,16 +1,105 @@
 const blog = document.getElementsByClassName("blog")[0];
-const comments = document.getElementsByClassName("comments")[0];
+const commentsList = document.getElementsByClassName("comments")[0];
 const addCommentsBtn = document.getElementById("addComment");
 const blogPage = document.getElementsByClassName("blogPage")[0];
 let dataStored = [];
+let nameBlog = "";
 let user = localStorage.getItem("email");
 
 function templateComment(data) {
-    comments.insertAdjacentHTML("beforeend", `
+    console.log(data);
+
+    commentsList.insertAdjacentHTML("beforeend", `
+            <li>
+                <img id="removeComment" src="../images/bin.png" style="width: 48px; height: 48px;" />
                 <h2>потребител: ${data.user}</h2>
                 <p>час: ${data.date}</p>
-                <p>${data.comment}</p>`);
+                <p>${data.comment}</p>
+            <li>`);
+
 }
+
+function setRating(numberStar) {
+    for (let i = 1; i <= numberStar; i++) {
+        document.getElementById(i.toString()).innerHTML = '&#9733';
+    }
+
+    if(numberStar == null) {
+        document.getElementById("currentRating").textContent = "0 / 5";
+    } else {
+        document.getElementById("currentRating").textContent = numberStar + " / 5";
+    }
+}
+
+let removeBtn = document.getElementById("removeCommen");
+
+document.addEventListener("click", event => {
+
+    // премахване на коментар
+    if(event.target.id == "removeComment"){
+        console.log(event.target.parentElement);
+        console.log(event.target.parentElement.children[2].textContent);
+        event.target.parentElement.remove();
+
+        dataStored.forEach(element => {
+            if (element.title == nameBlog) {
+                element.comments.forEach(commentEl => {
+                    if(commentEl.comment == event.target.parentElement.children[3].textContent) {
+                        const index = element.comments.indexOf(commentEl);
+                        element.comments.splice(index, 1);
+                        localStorage.setItem("list", JSON.stringify(dataStored));
+                    }
+                })
+            }
+        });
+    }
+
+
+    // премахване на блог
+    if(event.target.id == "removeBlog") {
+        console.log(blog.children[2].textContent);
+        dataStored.forEach(element => {
+            if(element.title == blog.children[2].textContent) {
+                const index = dataStored.indexOf(element);
+                dataStored.splice(index, 1);
+                console.log(dataStored);
+                localStorage.setItem("list", JSON.stringify(dataStored));
+                backToMain();
+            }
+        })
+    }
+
+    // промяна на блог
+    let newText = document.getElementById("editedBlog");
+    let oldText = blog.children[4];
+    if(event.target.id ==  "editBlog"){
+        document.getElementsByClassName("edit")[0].style = "display: block;";
+        newText.value = oldText.textContent;
+    }
+
+    if(event.target.id == "addEditedBlog"){
+        if(newText.value != ""){
+            oldText.textContent = newText.value;
+            console.log(oldText);
+            console.log(newText.value);
+            document.getElementsByClassName("edit")[0].style = "display: none;";
+        }
+    }
+
+    //рейтинг
+    if(event.target.parentElement.className == "rating"){
+        let numberStar = event.target.id;
+
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(i.toString()).innerHTML = '&#9734';
+        }
+
+        setRating(numberStar);
+
+        localStorage.setItem(nameBlog + "Rating", numberStar);
+    }
+
+})
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -46,21 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             nameBlog = element.title;
 
-            // console.log(element.title);
-            // console.log(topic);
+            element.comments.forEach(element1 => {
+                templateComment(element1);
+            });
 
-            // element.comments.forEach(element1 => {
-            //     templateComment(element1);
-            // });
-
-            // Check for saved wishlist items
-            const saved = localStorage.getItem(nameBlog);
-
-            // If there are any saved items, update our list
-            if (saved) {
-                comments.innerHTML = saved;
-            }
-
+            let getRating = localStorage.getItem(nameBlog + "Rating");
+            setRating(getRating);
         }
 
     });
@@ -103,7 +183,7 @@ textar.addEventListener("keydown", event => {
 addCommentsBtn.addEventListener("click", event => {
 
     if (user != null) {
-        let text = document.getElementsByTagName("textarea")[0];
+        let text = document.getElementById("newComment");
 
         var date = new Date();
         var hours = date.getHours();
@@ -140,8 +220,7 @@ addCommentsBtn.addEventListener("click", event => {
         });
 
         localStorage.setItem("list", JSON.stringify(dataStored));
-        // Save the list to localStorage
-        localStorage.setItem(nameBlog, comments.innerHTML);
+
     } else {
         alert("To write comments you should be registered");
     }
