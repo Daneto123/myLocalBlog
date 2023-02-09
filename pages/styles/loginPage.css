@@ -55,10 +55,6 @@ input[type=password]:focus {
     outline: none;
 }
 
-input:invalid {
-    box-shadow: 0 0 5px 1px red;
-}
-
 a {
     text-decoration: none;
     color: black;

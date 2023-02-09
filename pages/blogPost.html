@@ -29,9 +29,13 @@
                 <div id="sandwitch"></div>
                 <div class="menuPhone">
                     <p id="loginedUserMobile"></p>
-                    <button><a href="./createBlogPage.html">създаване на блог</a></button>
-                    <button><a href="./registerPage.html">регистрация</a></button>
-                    <button><a href="./loginPage.html">логин</a></button>
+                    <div class="buttons">
+                        <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                    </div>
+                    <div class="notLogin">
+                        <button><a href="./registerPage.html">регистрация</a></button>
+                        <button><a href="./loginPage.html">логин</a></button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -40,14 +44,13 @@
     <main>
         <div class="blogPage">
             <section class="blog">
-                <button id="backBtn" onclick="backToMain()" style="width: 30px; height: 30px;"><img
-                        style="width: 30px; height: 30px; position: relative;" src="../images/backBtn.png" /></button>
+                <button id="backBtn" onclick="backToMain()"><img src="../images/backBtn.png" /></button>
                 <img />
                 <h2></h2>
                 <p></p>
                 <p></p>
-                <img id="removeBlog" src="../images/bin.png" style="width: 48px; height: 48px;" />
-                <img id="editBlog" src="../images/edit.png" style="width: 48px; height: 48px;" />
+                <img id="removeBlog" src="../images/bin.png" />
+                <img id="editBlog" src="../images/edit.png" />
                 <div class="rating">
                     <button id="1">&#9734</button>
                     <button id="2">&#9734</button>

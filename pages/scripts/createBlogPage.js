@@ -4,6 +4,17 @@ const tags = document.getElementById("tags");
 const list = document.getElementById("listBlogFP");
 var dataStored = [];
 
+function showHide(className) {
+    let menu = document.getElementsByClassName(className)[0];
+    let menuStyle = menu.style.display;
+
+    if (menuStyle == "flex" || menuStyle == "") {
+        menuStyle = "none";
+    } else {
+        menuStyle = "flex";
+    }
+}
+
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", event => {
@@ -57,18 +68,26 @@ submit.addEventListener("click", event => {
 
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    // аутентикиране на потребител
+
+    if (user != null) {
+        document.getElementById("loginedUser").textContent = "Hi, " + user;
+        document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
+        document.getElementsByClassName("notLogin")[0].style = "display: none;";
+        document.getElementsByClassName("buttons")[0].style = "display: block;";
+    } else {
+        document.getElementsByClassName("buttons")[0].style = "display: none;";
+    }
+
+});
 
 let sandBtn = document.getElementsByClassName("sandButton")[0];
 
 // бутони за телефон
 sandBtn.addEventListener("click", event => {
-    let menu = document.getElementsByClassName("menuPhone")[0];
-
-    if (menu.style.display == "flex" || menu.style.display == "") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "flex";
-    }
+    showHide("menuPhone");
 })
 
 
@@ -76,11 +95,7 @@ var mediaQueryList = window.matchMedia("(max-width: 600px)");
 
 function screenTest(e) {
     if (e.matches) {
-        let menu = document.getElementsByClassName("menuPhone")[0];
-
-        if (menu.style.display == "flex" || menu.style.display == "") {
-            menu.style.display = "none";
-        }
+        showHide("menuPhone");
     }
 }
 

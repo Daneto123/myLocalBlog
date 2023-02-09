@@ -6,9 +6,8 @@ let dataStored = [];
 let nameBlog = "";
 let user = localStorage.getItem("email");
 
+// темплейт за показване на коментарите
 function templateComment(data) {
-    console.log(data);
-
     commentsList.insertAdjacentHTML("beforeend", `
             <li>
                 <img id="removeComment" src="../images/bin.png" style="width: 48px; height: 48px;" />
@@ -19,6 +18,7 @@ function templateComment(data) {
 
 }
 
+// показване на рейтинга на блог
 function setRating(numberStar) {
     for (let i = 1; i <= numberStar; i++) {
         document.getElementById(i.toString()).innerHTML = '&#9733';
@@ -31,8 +31,7 @@ function setRating(numberStar) {
     }
 }
 
-let removeBtn = document.getElementById("removeCommen");
-
+// премахване на коментар, блог и промяна на блог 
 document.addEventListener("click", event => {
 
     // премахване на коментар
@@ -62,7 +61,6 @@ document.addEventListener("click", event => {
             if(element.title == blog.children[2].textContent) {
                 const index = dataStored.indexOf(element);
                 dataStored.splice(index, 1);
-                console.log(dataStored);
                 localStorage.setItem("list", JSON.stringify(dataStored));
                 backToMain();
             }
@@ -80,8 +78,6 @@ document.addEventListener("click", event => {
     if(event.target.id == "addEditedBlog"){
         if(newText.value != ""){
             oldText.textContent = newText.value;
-            console.log(oldText);
-            console.log(newText.value);
             document.getElementsByClassName("edit")[0].style = "display: none;";
         }
     }
@@ -109,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("loginedUser").textContent = "Hi, " + user;
         document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
         document.getElementsByClassName("notLogin")[0].style = "display: none;";
+        document.getElementsByClassName("buttons")[0].style = "display: block;";
     } else {
         document.getElementsByClassName("buttons")[0].style = "display: none;";
     }
@@ -231,13 +228,12 @@ let sandBtn = document.getElementsByClassName("sandButton")[0];
 // бутони за телефон
 sandBtn.addEventListener("click", event => {
     let menu = document.getElementsByClassName("menuPhone")[0];
+    let menuStyle = menu.style.display;
 
-    console.log(menu)
-
-    if (menu.style.display == "flex" || menu.style.display == "") {
-        menu.style.display = "none";
+    if (menuStyle == "flex" || menuStyle == "") {
+        menuStyle = "none";
     } else {
-        menu.style.display = "flex";
+        menuStyle = "flex";
     }
 })
 
@@ -247,11 +243,10 @@ var mediaQueryList = window.matchMedia("(max-width: 600px)");
 function screenTest(e) {
     if (e.matches) {
         let menu = document.getElementsByClassName("menuPhone")[0];
+        let menuStyle = menu.style.display;
 
-        console.log(menu)
-
-        if (menu.style.display == "flex" || menu.style.display == "") {
-            menu.style.display = "none";
+        if (menuStyle == "flex" || menuStyle == "") {
+            menuStyle = "none";
         }
     }
 }

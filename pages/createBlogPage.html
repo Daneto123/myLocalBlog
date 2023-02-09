@@ -19,9 +19,11 @@
                 <p id="loginedUser"></p>
                 <div class="buttons">
                     <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                </div>
+                <div class="notLogin">
                     <button><a href="./pages/registerPage.html">регистрация</a></button>
                     <button><a href="./pages/loginPage.html">логин</a></button>
-                </div>
+                <div>
             </div>
             <div class="sandButton">
                 <div id="sandwitch"></div>
@@ -29,9 +31,13 @@
                 <div id="sandwitch"></div>
                 <div class="menuPhone">
                     <p id="loginedUser"></p>
-                    <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
-                    <button><a href="./pages/registerPage.html">регистрация</a></button>
-                    <button><a href="./pages/loginPage.html">логин</a></button>
+                    <div class="buttons">
+                        <button><a href="./pages/createBlogPage.html">създаване на блог</a></button>
+                    </div>
+                    <div class="notLogin">
+                        <button><a href="./pages/registerPage.html">регистрация</a></button>
+                        <button><a href="./pages/loginPage.html">логин</a></button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -52,10 +58,31 @@
             </form>
         </section>
     </main>
+    
     <footer>
-        <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св.
-            Климент Охридски"</p>
-        <p>Може да пишете на: <a href="mailto:jordan.pavlov73@gmail.com">личен имейл</a></p>
+        <div class="links">
+            <ul>
+                <li><a href="http://127.0.0.1:5500/mainPage.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="http://127.0.0.1:5500/pages/registerPage.html">Regiter</a></li>
+            </ul>
+            <div class="messageS">
+                <p>Leave a message</p>
+                <textarea placeholder="напишете съобщение"></textarea>
+            
+                <button>send</button>
+            </div>
+        </div>
+        <div class="about">
+            <p>Йордан Павлов, курс по фронт енд към Факултета по математика и информатика на Софийски университет "Св.
+                Климент Охридски"</p>
+        </div>
+        <div class="social">
+            <button><img src="./images/fb-logo.png" /></button>
+            <button><img src="./images/insta-logo.png" /></button>
+            <button><img src="./images/twitter-logo.png" /></button>
+            <button><img src="./images/youtube-logo.png" /></button>
+        </div>
     </footer>
 </body>
 

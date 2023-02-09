@@ -22,6 +22,7 @@ a {
 }
 
 .buttons {
+    display: none;
     margin-top: 15px;
 }
 
@@ -32,12 +33,12 @@ button {
     padding: 8px;
 }
 
-.buttons button a {
+button a {
     text-decoration: none;
     color: black;
 }
 
-.buttons button:hover {
+button:hover {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -65,8 +66,8 @@ textarea {
     resize: vertical;
 }
 
-input[type=submit] {
-    background-color: #04AA6D;
+#submit {
+    background-color: rgba(0, 0, 0, 0.15);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -74,20 +75,82 @@ input[type=submit] {
     cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
 footer {
     background-color: green;
     border-radius: 10px;
-    padding-left: 30px;
-    padding-top: 30px;
-    height: 100px;
-    text-align: center;
+    padding: 30px;
+    display: flex;
 }
 
-@media only screen and (max-width: 600px) {
+.links {
+    width: 30%;
+    height: fit-content;
+    margin-left: 50px;
+}
+
+.links ul {
+    width: fit-content;
+    display: flex;
+    padding-left: 0;
+}
+
+.links ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.links ul li a:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.messageS {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messageS p {
+    float: left;
+}
+
+.messageS textarea {
+    height: 50px;
+    float: left;
+    background-color: rgba(255, 228, 196, 0.75);
+}
+
+.messageS button {
+    margin-top: 10px;
+}
+
+.about {
+    width: 40%;
+    height: fit-content;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.social {
+    width: 30%;
+    height: fit-content;
+    margin-left: 150px;
+    width: 200px;
+}
+
+.social button {
+    background: none;
+    border: none;
+}
+
+.social button img:hover {
+    background: none;
+    border-radius: 30px;
+}
+
+@media only screen and (max-width: 750px) {
     nav {
         width: 90%;
     }
@@ -121,6 +184,14 @@ footer {
         height: 5px;
         background-color: black;
         margin: 6px 0;
+    }
+
+    .about {
+        display: none;
+    }
+
+    #listBlogFP section {
+        width: 340px;
     }
 
     footer {

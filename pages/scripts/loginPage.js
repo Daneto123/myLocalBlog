@@ -24,18 +24,11 @@ submitBtn.addEventListener("click", event => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  console.log(email);
-  console.log(password);
-
   if (email === "" || !email.toLowerCase().match('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')) {
     alert("Enter Email");
   } else if (password === "") {
     alert("Enter Password");
   } else {
-    console.log(email);
-    console.log(password);
-
-
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -55,7 +48,7 @@ submitBtn.addEventListener("click", event => {
             break;
           default:
             const errorMessage = error.message;
-            alert(`error code: ${errorCode}, message; ${errorMessage}`);
+            alert(`The user is not registred`);
             break;
         }
       });
@@ -64,39 +57,48 @@ submitBtn.addEventListener("click", event => {
 
 })
 
-let inputEmail = document.getElementById('email');
-let inputPassword = document.getElementById('password');
+// проверка на поле за въвеждане на имейл, парола и бутон за връщане
+document.addEventListener('keydown', event => {
 
-// проверка на поле за въвеждане на имейл
-inputEmail.addEventListener('keydown', event => {
-
-  let idEvent = event.target.validity.valid;
+  let idEvent = event.target.validity;
   let emailMessage = document.getElementById("EmailMessage");
-
-  if (idEvent == false) {
-    emailMessage.style = "display: block;";
-  } else {
-    emailMessage.style = "display: none;";
-  }
-
-})
-
-// проверка на поле за въвеждане на парола
-inputPassword.addEventListener('keydown', event => {
-
-  let idEvent = event.target.validity.valid;
   let passwordMessage = document.getElementById("PasswordMessage");
+  let idElement = event.target.id;
 
-  if (idEvent == false) {
-    passwordMessage.style = "display: block;";
-  } else {
-    passwordMessage.style = "display: none;";
+  if(idElement === "email"){
+    if (idEvent.valid === true) {
+      emailMessage.style = "display: none;";
+      document.getElementById("email").style = "box-shadow: none;";
+    } else {
+      if(event.target.value != "") {
+        emailMessage.style = "display: block;";
+        document.getElementById("email").style = "box-shadow: 0 0 5px 1px red;";
+      }
+    }
+  }
+
+  if(idElement === "password"){
+    let len = event.target.value.length + 1;
+  
+    if(event.keyCode == 8) {
+      len -= 2;
+      console.log(len);
+    }
+    
+    if (idEvent.valid === true && len < 15) {
+      passwordMessage.style = "display: none;";
+      document.getElementById("password").style = "box-shadow: none;";
+    } else {
+      if(event.target.value != "") {
+        passwordMessage.style = "display: block;";
+        document.getElementById("password").style = "box-shadow: 0 0 5px 1px red;";
+      }
+    }
+  }
+
+  if(idElement == "backBtn"){
+    window.location.href = "http://127.0.0.1:5500/mainPage.html";
   }
 
 })
 
-let back = document.getElementById("backBtn");
-
-back.addEventListener("click", event => {
-  window.location.href = "http://127.0.0.1:5500/mainPage.html";
-})

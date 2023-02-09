@@ -31,10 +31,6 @@ submitBtn.addEventListener("click", event => {
     alert("Password is different")
   } else {
 
-    console.log(email);
-    console.log(password);
-    console.log(repassword);
-
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
@@ -58,7 +54,7 @@ submitBtn.addEventListener("click", event => {
             break;
           default:
             const errorMessage = error.message;
-            alert(`error code: ${errorCode}, message; ${errorMessage}`);
+            alert(`Some fields is not correct. Please check it again`);
             break;
         }
       });
@@ -66,55 +62,58 @@ submitBtn.addEventListener("click", event => {
 
 })
 
+var pass;
 
-let inputEmail = document.getElementById('email');
-let inputPassword = document.getElementById('password');
-let inputRePassword = document.getElementById('repassword');
-
-// проверка на поле за въвеждане на имейл
-inputEmail.addEventListener('keydown', event => {
+// бутони за изтриване на коментар и блог, промяна на блог
+document.addEventListener('keydown', event => {
 
   let idEvent = event.target.validity.valid;
   let emailMessage = document.getElementById("EmailMessage");
-
-  if (idEvent == false) {
-    emailMessage.style = "display: block;";
-  } else {
-    emailMessage.style = "display: none;";
-  }
-
-})
-
-// проверка на поле за въвеждане на парола
-inputPassword.addEventListener('keydown', event => {
-
-  let idEvent = event.target.validity.valid;
   let passwordMessage = document.getElementById("PasswordMessage");
-
-  if (idEvent == false) {
-    passwordMessage.style = "display: block;";
-  } else {
-    passwordMessage.style = "display: none;";
-  }
-
-})
-
-// проверка на поле за повторно въвеждане на парола
-inputRePassword.addEventListener('keydown', event => {
-
-  let idEvent = event.target.validity.valid;
   let repasswordMessage = document.getElementById("RePasswordMessage");
+  let idElement = event.target.id;
 
-  if (idEvent == false) {
-    repasswordMessage.style = "display: block;";
-  } else {
-    repasswordMessage.style = "display: none;";
+  if(idElement == "email"){
+    if (idEvent == false) {
+      emailMessage.style = "display: block;";
+    } else {
+      emailMessage.style = "display: none;";
+    }
   }
 
-})
+  if(idElement == "password"){
+    let len = event.target.value.length + 1;
+  
+    if(event.keyCode == 8) {
+      len -= 2;
+      console.log(len);
+    }
+    
+    if (len < 15) {
+      passwordMessage.style = "display: none;";
+      document.getElementById("password").style = "box-shadow: none;";
+      pass = event.target.value;
+    } else {
+      if(event.target.value != "") {
+        passwordMessage.style = "display: block;";
+        document.getElementById("password").style = "box-shadow: 0 0 5px 1px red;";
+      }
+    }
+  }
 
-let back = document.getElementById("backBtn");
+  if(idElement == "repassword"){
+    let repass = event.target.value;
+    if (pass == repass) {
+      repasswordMessage.style = "display: none;";
+      document.getElementById("password").style = "box-shadow: none;";
+    } else {
+      repasswordMessage.style = "display: block;";
+      document.getElementById("password").style = "box-shadow: 0 0 5px 1px red;";
+    }
+  }
 
-back.addEventListener("click", event => {
-  window.location.href = "http://127.0.0.1:5500/mainPage.html";
+  if(idElement == "backBtn"){
+    window.location.href = "http://127.0.0.1:5500/mainPage.html";
+  }
+
 })
