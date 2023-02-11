@@ -5,6 +5,7 @@ const blogPage = document.getElementsByClassName("blogPage")[0];
 let dataStored = [];
 let nameBlog = "";
 let user = localStorage.getItem("email");
+let logned = false;
 
 // темплейт за показване на коментарите
 function templateComment(data) {
@@ -35,7 +36,7 @@ function setRating(numberStar) {
 document.addEventListener("click", event => {
 
     // премахване на коментар
-    if(event.target.id == "removeComment"){
+    if(event.target.id == "removeComment" && logned == true){
         console.log(event.target.parentElement);
         console.log(event.target.parentElement.children[2].textContent);
         event.target.parentElement.remove();
@@ -83,7 +84,7 @@ document.addEventListener("click", event => {
     }
 
     //рейтинг
-    if(event.target.parentElement.className == "rating"){
+    if(event.target.parentElement.className == "rating" && logned == true){
         let numberStar = event.target.id;
 
         for (let i = 1; i <= 5; i++) {
@@ -100,14 +101,19 @@ document.addEventListener("click", event => {
 document.addEventListener('DOMContentLoaded', () => {
 
     // аутентикиране на потребител
-
     if (user != null) {
         document.getElementById("loginedUser").textContent = "Hi, " + user;
         document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
         document.getElementsByClassName("notLogin")[0].style = "display: none;";
         document.getElementsByClassName("buttons")[0].style = "display: block;";
+        document.getElementById("removeBlog").style = "text-align: center;";
+        document.getElementById("editBlog").style = "text-align: center;";
+        logned = true;
     } else {
         document.getElementsByClassName("buttons")[0].style = "display: none;";
+        document.getElementById("removeBlog").style = "display: none;";
+        document.getElementById("editBlog").style = "display: none;";
+        logned = false;
     }
 
     // зареждане на блог
@@ -151,7 +157,7 @@ textar.addEventListener("keydown", event => {
     let symbolLen = event.target.value.length + 1;
 
     let symbols = document.getElementById("symbols");
-    console.log(symbolLen);
+    //console.log(symbolLen);
     if(symbolLen == 1 && event.keyCode == 8) {
         symbols.innerText = 0 + "/ 200";
     } else if (symbolLen == 200 && event.keyCode == '8') {

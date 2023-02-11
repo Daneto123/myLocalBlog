@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личен Блог</title>
     <link rel="stylesheet" href="./styles/blogPost.css" />
+    <script src="./scripts/blogPost.js" type="module"></script>
+    <script src="../logout.js" type="module"></script>
 </head>
 
 <body>
@@ -16,11 +18,12 @@
             <div class="laptop">
                 <p id="loginedUser"></p>
                 <div class="buttons">
-                    <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                    <button><a href="./createBlogPage.html">Създаване на блог</a></button>
+                    <button id="logout">Излизане</button>
                 </div>
                 <div class="notLogin">
-                    <button><a href="./registerPage.html">регистрация</a></button>
-                    <button><a href="./loginPage.html">логин</a></button>
+                    <button><a href="./registerPage.html">Регистрация</a></button>
+                    <button><a href="./loginPage.html">Влизане</a></button>
                 </div>
             </div>
             <div class="sandButton">
@@ -31,6 +34,7 @@
                     <p id="loginedUserMobile"></p>
                     <div class="buttons">
                         <button><a href="./createBlogPage.html">създаване на блог</a></button>
+                        <button id="logout">Logout</button>
                     </div>
                     <div class="notLogin">
                         <button><a href="./registerPage.html">регистрация</a></button>
@@ -86,15 +90,15 @@
     <footer>
         <div class="links">
             <ul>
-                <li><a href="http://127.0.0.1:5500/mainPage.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="http://127.0.0.1:5500/pages/registerPage.html">Regiter</a></li>
+                <li><a href="http://127.0.0.1:5500/mainPage.html">Блог</a></li>
+                <li><a href="#">За нас</a></li>
+                <li><a href="http://127.0.0.1:5500/pages/registerPage.html">Регистрация</a></li>
             </ul>
             <div class="messageS">
-                <p>Leave a message</p>
+                <p>Оставете съобщение</p>
                 <textarea placeholder="напишете съобщение"></textarea>
             
-                <button>send</button>
+                <button>Изпрати</button>
             </div>
         </div>
         <div class="about">
@@ -109,7 +113,6 @@
         </div>
     </footer>
 
-    <script src="./scripts/blogPost.js"></script>
 </body>
 
 </html>

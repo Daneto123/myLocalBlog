@@ -17,21 +17,21 @@
             <button id="backBtn" style="width: 30px; height: 30px;"><img
                     style="width: 30px; height: 30px; position: relative;" src="../images/backBtn.png" /></button>
             <h2>Register new user page</h2>
-            <label for="email">Email</label>
+            <label for="email">Имейл</label>
             <input name="email" placeholder="email" type="text" id="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
             required />
-            <a id="EmailMessage">Email is invalid.</a>
-            <label for="firstName">Password</label>
+            <a id="EmailMessage">Имейлът не е валиден.</a>
+            <label for="firstName">Парола</label>
             <input name="password" placeholder="password" type="text" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                 required />
-            <a id="PasswordMessage">Password is invalid.</a>
+            <a id="PasswordMessage">Пролата не е валидна.</a>
             <label for="repassword">Repeat password</label>
             <input name="repassword" placeholder="repeat password" type="text" id="repassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required />
-            <a id="RePasswordMessage">Repassword is invalid.</a>
+            <a id="RePasswordMessage">Двете пароли не съвпадат.</a>
 
-            <input id="submit" type="button" value="submit" />
+            <input id="submit" type="button" value="Регистриране" />
             <div class="signin">
-                <p>Already have an account? <a href="./loginPage.html">Sign in</a>.</p>
+                <p>Ако вече имате профил. <a href="./loginPage.html">Влизане</a>.</p>
             </div>
         </form>
 

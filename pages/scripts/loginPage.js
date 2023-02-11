@@ -102,3 +102,4 @@ document.addEventListener('keydown', event => {
 
 })
 
+export { auth };

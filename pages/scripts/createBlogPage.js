@@ -68,21 +68,6 @@ submit.addEventListener("click", event => {
 
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    // аутентикиране на потребител
-
-    if (user != null) {
-        document.getElementById("loginedUser").textContent = "Hi, " + user;
-        document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
-        document.getElementsByClassName("notLogin")[0].style = "display: none;";
-        document.getElementsByClassName("buttons")[0].style = "display: block;";
-    } else {
-        document.getElementsByClassName("buttons")[0].style = "display: none;";
-    }
-
-});
-
 let sandBtn = document.getElementsByClassName("sandButton")[0];
 
 // бутони за телефон
