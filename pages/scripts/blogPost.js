@@ -48,12 +48,15 @@ document.addEventListener("click", event => {
                         const index = element.comments.indexOf(commentEl);
                         element.comments.splice(index, 1);
                         localStorage.setItem("list", JSON.stringify(dataStored));
+
+                        if(element.comments.length == 0){
+                            document.getElementsByClassName("comments")[0].style = "display: none;";
+                        }
                     }
                 })
             }
         });
     }
-
 
     // премахване на блог
     if(event.target.id == "removeBlog") {
@@ -142,6 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 templateComment(element1);
             });
 
+            if(element.comments.length == 0){
+                document.getElementsByClassName("comments")[0].style = "display: none;";
+            }
+
             let getRating = localStorage.getItem(nameBlog + "Rating");
             setRating(getRating);
         }
@@ -218,7 +225,9 @@ addCommentsBtn.addEventListener("click", event => {
         dataStored.forEach(element => {
             if (element.title == nameBlog) {
                 element.comments.push(data);
-
+                if(element.comments.length == 1){
+                    document.getElementsByClassName("comments")[0].style = "display: block;";
+                }
             }
         });
 

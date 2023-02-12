@@ -97,7 +97,7 @@ document.addEventListener('keydown', event => {
   }
 
   if(idElement == "backBtn"){
-    window.location.href = "http://127.0.0.1:5500/mainPage.html";
+    location.replace("http://127.0.0.1:5500/mainPage.html");
   }
 
 })

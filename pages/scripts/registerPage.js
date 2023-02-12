@@ -23,7 +23,7 @@ submitBtn.addEventListener("click", event => {
   const password = document.getElementById("password").value;
   const repassword = document.getElementById("repassword").value;
 
-  if (email.toLowerCase().match('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$')) {
+  if (email.length <= 10) {
     alert("Email is not valid")
   } else if (password.length <= 7) {
     alert("Password is short");
@@ -75,9 +75,12 @@ document.addEventListener('keydown', event => {
 
   if(idElement == "email"){
     if (idEvent == false) {
-      emailMessage.style = "display: block;";
+      if(document.getElementById("email").value != ""){
+        emailMessage.style = "display: block;";
+      }
     } else {
       emailMessage.style = "display: none;";
+      console.log(document.getElementById("email").value)
     }
   }
 
@@ -86,7 +89,7 @@ document.addEventListener('keydown', event => {
   
     if(event.keyCode == 8) {
       len -= 2;
-      console.log(len);
+      //console.log(len);
     }
     
     if (len < 15) {
