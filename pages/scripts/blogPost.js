@@ -108,12 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("loginedUser").textContent = "Hi, " + user;
         document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
         document.getElementsByClassName("notLogin")[0].style = "display: none;";
+        document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: none;";
         document.getElementsByClassName("buttons")[0].style = "display: block;";
+        document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: block;";
         document.getElementById("removeBlog").style = "text-align: center;";
         document.getElementById("editBlog").style = "text-align: center;";
         logned = true;
     } else {
+        document.getElementsByClassName("notLogin")[0].style = "display: block;";
+        document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: block;";
         document.getElementsByClassName("buttons")[0].style = "display: none;";
+        document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: none;";
         document.getElementById("removeBlog").style = "display: none;";
         document.getElementById("editBlog").style = "display: none;";
         logned = false;
@@ -238,17 +243,17 @@ addCommentsBtn.addEventListener("click", event => {
     }
 })
 
-let sandBtn = document.getElementsByClassName("sandButton")[0];
+let phoneBtn = document.getElementsByClassName("sandButton")[0];
 
-// бутони за телефон
-sandBtn.addEventListener("click", event => {
+phoneBtn.addEventListener("click", event => {
     let menu = document.getElementsByClassName("menuPhone")[0];
-    let menuStyle = menu.style.display;
 
-    if (menuStyle == "flex" || menuStyle == "") {
-        menuStyle = "none";
+    console.log(menu)
+
+    if (menu.style.display == "flex" || menu.style.display == "") {
+        menu.style.display = "none";
     } else {
-        menuStyle = "flex";
+        menu.style.display = "flex";
     }
 })
 
@@ -258,17 +263,19 @@ var mediaQueryList = window.matchMedia("(max-width: 600px)");
 function screenTest(e) {
     if (e.matches) {
         let menu = document.getElementsByClassName("menuPhone")[0];
-        let menuStyle = menu.style.display;
 
-        if (menuStyle == "flex" || menuStyle == "") {
-            menuStyle = "none";
+        console.log(menu)
+
+        if (menu.style.display == "flex" || menu.style.display == "") {
+            menu.style.display = "none";
         }
     }
 }
 
 mediaQueryList.addListener(screenTest);
 
+let back = document.getElementById("backBtn");
 
-function backToMain() {
+back.addEventListener("click", event => {
     window.location.href = "http://127.0.0.1:5500/mainPage.html";
-}
+})

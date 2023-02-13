@@ -8,6 +8,7 @@
     <title>Личен Блог</title>
     <link rel="stylesheet" href="./styles/createBlogPage.css" />
     <script src="./scripts/createBlogPage.js" type="module"></script>
+    <script src="./scripts/logout.js" type="module"></script>
 </head>
 
 <body>
@@ -30,9 +31,9 @@
                 <div id="sandwitch"></div>
                 <div id="sandwitch"></div>
                 <div class="menuPhone">
-                    <p id="loginedUser"></p>
+                    <p id="loginedUserMobile"></p>
                     <div class="buttons">
-                        <button id="logout">Logout</button>
+                        <button id="logout">Излизане</button>
                     </div>
                     <div class="notLogin">
                         <button><a href="./registerPage.html">регистрация</a></button>
@@ -45,6 +46,7 @@
 
     <main>
         <section class="createBlog">
+            <button id="backBtn" onclick="backToMain()"><img src="../images/backBtn.png" /></button>
             <h2>Add new blog</h2>
             <form>
                 <label for="topic">Name of topic</label>
@@ -78,10 +80,10 @@
                 Климент Охридски"</p>
         </div>
         <div class="social">
-            <button><img src="./images/fb-logo.png" /></button>
-            <button><img src="./images/insta-logo.png" /></button>
-            <button><img src="./images/twitter-logo.png" /></button>
-            <button><img src="./images/youtube-logo.png" /></button>
+            <button><img src="../images/fb-logo.png" /></button>
+            <button><img src="../images/insta-logo.png" /></button>
+            <button><img src="../images/twitter-logo.png" /></button>
+            <button><img src="../images/youtube-logo.png" /></button>
         </div>
     </footer>
 </body>

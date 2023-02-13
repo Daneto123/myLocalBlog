@@ -15,6 +15,22 @@ function showHide(className) {
     }
 }
 
+const user = localStorage.getItem("email");
+
+if (user != null) {
+    document.getElementById("loginedUser").textContent = "Hi, " + user;
+    document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
+    document.getElementsByClassName("notLogin")[0].style = "display: none;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: none;";
+    document.getElementsByClassName("buttons")[0].style = "display: block;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: block;";
+} else {
+    document.getElementsByClassName("notLogin")[0].style = "display: block;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: block;";
+    document.getElementsByClassName("buttons")[0].style = "display: none;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: none;";
+}
+
 const submit = document.getElementById("submit");
 
 submit.addEventListener("click", event => {
@@ -68,11 +84,18 @@ submit.addEventListener("click", event => {
 
 })
 
-let sandBtn = document.getElementsByClassName("sandButton")[0];
+let phoneBtn = document.getElementsByClassName("sandButton")[0];
 
-// бутони за телефон
-sandBtn.addEventListener("click", event => {
-    showHide("menuPhone");
+phoneBtn.addEventListener("click", event => {
+    let menu = document.getElementsByClassName("menuPhone")[0];
+
+    console.log(menu)
+
+    if (menu.style.display == "flex" || menu.style.display == "") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
 })
 
 
@@ -80,9 +103,20 @@ var mediaQueryList = window.matchMedia("(max-width: 600px)");
 
 function screenTest(e) {
     if (e.matches) {
-        showHide("menuPhone");
+        let menu = document.getElementsByClassName("menuPhone")[0];
+
+        console.log(menu)
+
+        if (menu.style.display == "flex" || menu.style.display == "") {
+            menu.style.display = "none";
+        }
     }
 }
 
 mediaQueryList.addListener(screenTest);
 
+let back = document.getElementById("backBtn");
+
+back.addEventListener("click", event => {
+    window.location.href = "http://127.0.0.1:5500/mainPage.html";
+})

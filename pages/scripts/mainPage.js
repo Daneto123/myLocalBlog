@@ -12,8 +12,14 @@ if (user != null) {
     document.getElementById("loginedUser").textContent = "Hi, " + user;
     document.getElementById("loginedUserMobile").textContent = "Hi, " + user;
     document.getElementsByClassName("notLogin")[0].style = "display: none;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: none;";
+    document.getElementsByClassName("buttons")[0].style = "display: block;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: block;";
 } else {
+    document.getElementsByClassName("notLogin")[0].style = "display: block;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("notLogin")[0].style = "display: block;";
     document.getElementsByClassName("buttons")[0].style = "display: none;";
+    document.getElementsByClassName("menuPhone")[0].getElementsByClassName("buttons")[0].style = "display: none;";
 }
 
 // презареждане на блогове -----------------------------------------------------
