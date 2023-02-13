@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-let textar = document.getElementsByTagName("textarea")[0];
+let textar = document.getElementById("newComment");
 
 // броя на символите въведени в текстовото поле
 textar.addEventListener("keydown", event => {

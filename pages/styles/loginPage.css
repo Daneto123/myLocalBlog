@@ -18,6 +18,8 @@ h2 {
 #backBtn {
     position: relative;
     float: right;
+    width: 30px; 
+    height: 30px;
     top: 20px;
     margin: 0 10px 0 10px;
     display: flex;
@@ -26,6 +28,9 @@ h2 {
 }
 
 #backBtn img {
+    position: relative;
+    width: 30px; 
+    height: 30px; 
     margin: 0;
 }
 

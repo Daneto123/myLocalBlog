@@ -30,6 +30,8 @@ form {
 #backBtn {
     position: relative;
     float: right;
+    width: 30px; 
+    height: 30px;
     top: 20px;
     margin: 0 10px 0 10px;
     display: flex;
@@ -38,6 +40,9 @@ form {
 }
 
 #backBtn img {
+    position: relative;
+    width: 30px; 
+    height: 30px;
     margin: 0;
 }
 

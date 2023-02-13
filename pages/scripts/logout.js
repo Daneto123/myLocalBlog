@@ -39,7 +39,7 @@ logout.addEventListener("click", event => {
     // let email = username.textContent.slice(3, username.textContent.length);
     // console.log(email);
 
-    //location.reload();
+    location.reload();
   }).catch((error) => {
     alert(`Problem with logout`);
   });
